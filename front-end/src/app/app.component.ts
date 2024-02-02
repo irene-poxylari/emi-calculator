@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   public isCalculated = true;
 
   inputForm: FormGroup = new FormGroup({
-    loanAmount: new FormControl(null, [Validators.min(0)]),
+    loanAmount: new FormControl(null),
     yearlyInterestRate: new FormControl(null,),
     loanTermsInYears: new FormControl(null,),
     emailAddress: new FormControl(null),
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
       this.dataService.calculateEmi(object).subscribe(
         (response: number) => {
           this.result = response;
+
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
@@ -74,7 +75,7 @@ export class AppComponent implements OnInit {
 
   save() {
     const object = this.inputForm.value
-
+    object.result = this.result;
     if (this.inputForm?.valid) {
       this.dataService.addInput(object).subscribe(
         (response: Input) => {
