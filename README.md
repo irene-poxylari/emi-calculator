@@ -11,6 +11,7 @@ run the EmiCalculatorApplication java file to start the back-end.
 # FrontEnd
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
 
+cd front-end
 run npm install --save @angular/material to install Angular
 
 ##
